@@ -6,5 +6,6 @@ public class Application {
 
         System.out.println(test.countNumberOfUniqueCharactersInString("hello world!"));
         System.out.println(test.countNumberOfUniqueCharactersInString("hello world!"));
+        System.out.println(test.countNumberOfUniqueCharactersInString("New hello world!"));
     }
 }
