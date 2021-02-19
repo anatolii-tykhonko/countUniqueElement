@@ -19,10 +19,11 @@ public class UniqueSymbolsCounter {
         return formatStringResult(uniqueCharsCounts);
     }
 
-    private void validateData(String inputString) {
+    private boolean validateData(String inputString) {
         if(inputString == null){
             throw new IllegalArgumentException("Null is wrong argument!");
         }
+        return true;
     }
 
     private Map<Character, Integer> countUniqueCharacters(String inputString) {
@@ -33,7 +34,7 @@ public class UniqueSymbolsCounter {
 
     private String formatStringResult(Map<Character, Integer> result) {
         StringBuilder formatResult = new StringBuilder();
-        result.forEach((key, value) -> formatResult.append(String.format("\"" + "%s" + "\" - " + "%d%n", key, value)));
+        result.forEach((key, value) -> formatResult.append(String.format("\"%s\" - %d%n", key, value)));
         return formatResult.toString();
     }
 }
