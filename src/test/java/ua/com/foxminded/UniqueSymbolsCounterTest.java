@@ -4,17 +4,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CounterUniqueElementsInStringTest {
-    CounterUniqueElementsInString test = new CounterUniqueElementsInString();
+class UniqueSymbolsCounterTest {
+    UniqueSymbolsCounter test = new UniqueSymbolsCounter();
 
     @Test
     void throwIllegalArgumentExceptionWhenInputEmpty() {
-        assertThrows(IllegalArgumentException.class, () -> test.countNumberOfUniqueCharactersInString(""));
+        assertThrows(IllegalArgumentException.class, () -> test.countNumberOfUniqueCharacters(""));
     }
 
     @Test
     void throwIllegalArgumentExceptionWhenInputNull() {
-        assertThrows(IllegalArgumentException.class, () -> test.countNumberOfUniqueCharactersInString(null));
+        assertThrows(IllegalArgumentException.class, () -> test.countNumberOfUniqueCharacters(null));
     }
 
     @Test
@@ -22,7 +22,7 @@ class CounterUniqueElementsInStringTest {
         String inputData = "a";
         String expected = String.format("\"a\" - 1%n");
 
-        String result = test.countNumberOfUniqueCharactersInString(inputData);
+        String result = test.countNumberOfUniqueCharacters(inputData);
 
         assertEquals(expected, result);
     }
@@ -32,7 +32,7 @@ class CounterUniqueElementsInStringTest {
         String inputData = "4";
         String expected = String.format("\"4\" - 1%n");
 
-        String result = test.countNumberOfUniqueCharactersInString(inputData);
+        String result = test.countNumberOfUniqueCharacters(inputData);
 
         assertEquals(expected, result);
     }
@@ -42,7 +42,7 @@ class CounterUniqueElementsInStringTest {
         String inputData = "@";
         String expected = String.format("\"@\" - 1%n");
 
-        String result = test.countNumberOfUniqueCharactersInString(inputData);
+        String result = test.countNumberOfUniqueCharacters(inputData);
 
         assertEquals(expected, result);
     }
@@ -52,7 +52,7 @@ class CounterUniqueElementsInStringTest {
         String inputData = " ";
         String expected = String.format("\" \" - 1%n");
 
-        String result = test.countNumberOfUniqueCharactersInString(inputData);
+        String result = test.countNumberOfUniqueCharacters(inputData);
 
         assertEquals(expected, result);
     }
@@ -62,7 +62,7 @@ class CounterUniqueElementsInStringTest {
         String inputData = "aa";
         String expected = String.format("\"a\" - 2%n");
 
-        String result = test.countNumberOfUniqueCharactersInString(inputData);
+        String result = test.countNumberOfUniqueCharacters(inputData);
 
         assertEquals(expected, result);
     }
@@ -73,7 +73,7 @@ class CounterUniqueElementsInStringTest {
         String expected = String.format("\"b\" - 1%n" +
                                         "\" \" - 1%n");
 
-        String result = test.countNumberOfUniqueCharactersInString(inputData);
+        String result = test.countNumberOfUniqueCharacters(inputData);
 
         assertEquals(expected, result);
     }
@@ -84,7 +84,7 @@ class CounterUniqueElementsInStringTest {
         String expected = String.format("\"b\" - 1%n" +
                                         "\"c\" - 1%n");
 
-        String result = test.countNumberOfUniqueCharactersInString(inputData);
+        String result = test.countNumberOfUniqueCharacters(inputData);
 
         assertEquals(expected, result);
     }
@@ -95,7 +95,7 @@ class CounterUniqueElementsInStringTest {
         String expected = String.format("\"b\" - 1%n" +
                                         "\"B\" - 1%n");
 
-        String result = test.countNumberOfUniqueCharactersInString(inputData);
+        String result = test.countNumberOfUniqueCharacters(inputData);
 
         assertEquals(expected, result);
     }
@@ -105,10 +105,10 @@ class CounterUniqueElementsInStringTest {
         String inputData = "sakfp fkdn q21e!mvkd>fkv fsdnoef  eifjoiwfkd ei3803)(01";
         long startTimeBeforeUseHash = System.currentTimeMillis();
 
-        test.countNumberOfUniqueCharactersInString(inputData);
+        test.countNumberOfUniqueCharacters(inputData);
         long timeWorkMethodBeforeUseHash = System.currentTimeMillis() - startTimeBeforeUseHash;
         long startTimeUseHash = System.currentTimeMillis();
-        test.countNumberOfUniqueCharactersInString(inputData);
+        test.countNumberOfUniqueCharacters(inputData);
         long timeWorkMethodUseHash = System.currentTimeMillis() - startTimeUseHash;
 
         assertTrue(timeWorkMethodUseHash < timeWorkMethodBeforeUseHash);
