@@ -1,34 +1,28 @@
 package ua.com.foxminded;
 
 
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class UniqueSymbolsCounter {
     private static final Map<String, Map<Character, Integer>> cache = new HashMap<>();
 
     public String countNumberOfUniqueCharacters(String inputString) {
-        if (validateDataAndCheckHash(inputString).isPresent()) {
-            return formatStringResult(validateDataAndCheckHash(inputString).get());
+        validateData(inputString);
+        if(cache.containsKey(inputString)){
+           return formatStringResult(cache.get(inputString));
         }
         Map<Character, Integer> uniqueCharsCounts = countUniqueCharacters(inputString);
         cache.put(inputString, uniqueCharsCounts);
         return formatStringResult(uniqueCharsCounts);
     }
 
-    private Optional<Map<Character, Integer>> validateDataAndCheckHash(String inputString) {
-        if (inputString == null) {
+    private void validateData(String inputString) {
+        if(inputString == null){
             throw new IllegalArgumentException("Null is wrong argument!");
         }
-        if (inputString.isEmpty()) {
-            throw new IllegalArgumentException("Input is empty. String isn`t contains unique elements!");
-        }
-        if (cache.containsKey(inputString)) {
-            return Optional.of(cache.get(inputString));
-        }
-        return Optional.empty();
     }
 
     private Map<Character, Integer> countUniqueCharacters(String inputString) {

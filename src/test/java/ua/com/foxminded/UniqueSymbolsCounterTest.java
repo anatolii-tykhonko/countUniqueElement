@@ -7,10 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class UniqueSymbolsCounterTest {
     UniqueSymbolsCounter test = new UniqueSymbolsCounter();
 
-    @Test
-    void throwIllegalArgumentExceptionWhenInputEmpty() {
-        assertThrows(IllegalArgumentException.class, () -> test.countNumberOfUniqueCharacters(""));
-    }
 
     @Test
     void throwIllegalArgumentExceptionWhenInputNull() {
