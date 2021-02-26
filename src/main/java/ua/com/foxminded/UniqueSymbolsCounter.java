@@ -7,16 +7,17 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class UniqueSymbolsCounter {
-    private static final Map<String, Map<Character, Integer>> cache = new HashMap<>();
+    private static final Map<String, String> cache = new HashMap<>();
 
     public String countNumberOfUniqueCharacters(String inputString) {
         validateData(inputString);
         if(cache.containsKey(inputString)){
-           return formatStringResult(cache.get(inputString));
+           return cache.get(inputString);
         }
         Map<Character, Integer> uniqueCharsCounts = countUniqueCharacters(inputString);
-        cache.put(inputString, uniqueCharsCounts);
-        return formatStringResult(uniqueCharsCounts);
+        String result = formatStringResult(uniqueCharsCounts);
+        cache.put(inputString, result);
+        return result;
     }
 
     private boolean validateData(String inputString) {

@@ -1,6 +1,5 @@
 package ua.com.foxminded;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -107,19 +106,15 @@ class UniqueSymbolsCounterTest {
 
         assertEquals(expected, result);
     }
-    @Disabled
+
     @Test
     void countNumberOfUniqueCharactersTestUsingCacheWhenInputEqualsString(){
-        String inputData = "sakfp fkdn q21e!mvkd>fkv fsdnoef  eifjoiwfkd ei3803)(01";
-        long startTimeBeforeUseHash = System.currentTimeMillis();
+        String inputData = "bigBadaBoom";
 
-        test.countNumberOfUniqueCharacters(inputData);
-        long timeWorkMethodBeforeUseHash = System.currentTimeMillis() - startTimeBeforeUseHash;
-        long startTimeUseHash = System.currentTimeMillis();
-        test.countNumberOfUniqueCharacters(inputData);
-        long timeWorkMethodUseHash = System.currentTimeMillis() - startTimeUseHash;
+        String result = test.countNumberOfUniqueCharacters(inputData);
+        String resultWithCache = test.countNumberOfUniqueCharacters(inputData);
 
-        assertTrue(timeWorkMethodUseHash < timeWorkMethodBeforeUseHash);
+        assertEquals(resultWithCache, result);
     }
 
 }
