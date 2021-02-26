@@ -114,7 +114,7 @@ class UniqueSymbolsCounterTest {
         String result = test.countNumberOfUniqueCharacters(inputData);
         String resultWithCache = test.countNumberOfUniqueCharacters(inputData);
 
-        assertEquals(resultWithCache, result);
+        assertSame(resultWithCache, result);
     }
 
 }
